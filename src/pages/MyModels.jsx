@@ -1,18 +1,24 @@
 import React, {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../AuthContext/AuthContext";
 import {Link} from "react-router";
+import Loader from "../components/Loader";
 
 const MyModels = () => {
 	const {user} = useContext(AuthContext);
 	const [models, setModels] = useState([]);
-
+	const [loading, setLoading] = useState(true);
 	useEffect(() => {
 		fetch(`http://localhost:3000/my-model?email=${user.email}`)
 			.then(res => res.json())
 			.then(data => {
 				setModels(data);
+				setLoading(false);
 			});
 	}, [user?.email]);
+
+	if (loading) {
+		return <Loader></Loader>;
+	}
 	return (
 		<div>
 			<div className="min-h-screen bg-linear-to-br from-slate-900 via-gray-800 to-slate-900 text-white p-6">

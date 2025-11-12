@@ -1,50 +1,54 @@
 import React from "react";
+import dalleImg from "../assets/Dalle-3--scaled.jpg";
+import clipImg from "../assets/clipai.jpg";
+import deeplabImg from "../assets/deepLab.png";
+import resnetImg from "../assets/resnet.png";
 
 const Slider = () => {
 	return (
-		<div>
-			<div className="carousel carousel-end rounded-box">
-				<div className="carousel-item">
-					<img
-						src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
-						alt="Drink"
-					/>
+		<div className="carousel w-full">
+			<div id="slide1" className="carousel-item relative w-full">
+				<img src={dalleImg} className="w-full h-[400px] object-cover" />
+				<div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+					<a href="#slide4" className="btn btn-circle">
+						❮
+					</a>
+					<a href="#slide2" className="btn btn-circle">
+						❯
+					</a>
 				</div>
-				<div className="carousel-item">
-					<img
-						src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
-						alt="Drink"
-					/>
+			</div>
+			<div id="slide2" className="carousel-item relative w-full">
+				<img src={clipImg} className="w-full h-[400px] object-cover" />
+				<div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+					<a href="#slide1" className="btn btn-circle">
+						❮
+					</a>
+					<a href="#slide3" className="btn btn-circle">
+						❯
+					</a>
 				</div>
-				<div className="carousel-item">
-					<img
-						src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
-						alt="Drink"
-					/>
+			</div>
+			<div id="slide3" className="carousel-item relative w-full">
+				<img src={deeplabImg} className="w-full h-[400px] object-cover" />
+				<div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+					<a href="#slide2" className="btn btn-circle">
+						❮
+					</a>
+					<a href="#slide4" className="btn btn-circle">
+						❯
+					</a>
 				</div>
-				<div className="carousel-item">
-					<img
-						src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp"
-						alt="Drink"
-					/>
-				</div>
-				<div className="carousel-item">
-					<img
-						src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp"
-						alt="Drink"
-					/>
-				</div>
-				<div className="carousel-item">
-					<img
-						src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp"
-						alt="Drink"
-					/>
-				</div>
-				<div className="carousel-item">
-					<img
-						src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.webp"
-						alt="Drink"
-					/>
+			</div>
+			<div id="slide4" className="carousel-item relative w-full">
+				<img src={resnetImg} className="w-full  h-[400px] object-cover" />
+				<div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+					<a href="#slide3" className="btn btn-circle">
+						❮
+					</a>
+					<a href="#slide1" className="btn btn-circle">
+						❯
+					</a>
 				</div>
 			</div>
 		</div>

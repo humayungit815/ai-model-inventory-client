@@ -1,19 +1,28 @@
 import React, {useEffect, useState} from "react";
 import Model from "./Model";
+import Loader from "./Loader";
 
 const FeaturedAiModels = () => {
 	const [models, setModels] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		fetch("http://localhost:3000/latest-models")
 			.then(res => res.json())
 			.then(data => {
 				setModels(data);
+				setLoading(false);
 			})
 			.catch(err => {
 				console.log(err);
+				setLoading(false);
 			});
 	}, []);
+
+	if (loading) {
+		return <Loader></Loader>;
+	}
+
 	return (
 		<div className="mt-20">
 			<h1 className="text-4xl text-[#1E2749] font-bold text-center my-10">

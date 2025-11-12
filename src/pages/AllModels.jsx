@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router";
+import Loader from "../components/Loader";
 
 const AllModels = () => {
 	const [models, setModels] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		fetch("http://localhost:3000/models")
@@ -10,13 +12,24 @@ const AllModels = () => {
 			.then(data => {
 				console.log(data);
 				setModels(data);
+				setLoading(false);
+			})
+			.catch(err => {
+				console.log(err);
+				setLoading(false);
 			});
 	}, []);
+
+	if (loading) {
+		return <Loader></Loader>;
+	}
 
 	return (
 		<div>
 			<div className="min-h-screen bg-[#d6d3f0] text-white py-10 px-4">
-				<h1 className="text-3xl font-bold text-center mb-8">All AI Models</h1>
+				<h1 className="text-3xl text-black font-bold text-center mb-8">
+					All AI Models
+				</h1>
 
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
 					{models.map(model => (

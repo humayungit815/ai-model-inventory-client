@@ -11,6 +11,7 @@ import ModelDetails from "../pages/ModelDetails";
 import UpdateModel from "../pages/UpdateModel";
 import MyModels from "../pages/MyModels";
 import MyModelPurchase from "../pages/MyModelPurchase";
+import Loader from "./../components/Loader";
 
 const router = createBrowserRouter([
 	{

@@ -3,6 +3,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {Link, useNavigate, useParams} from "react-router";
 import {AuthContext} from "../AuthContext/AuthContext";
 import {toast} from "react-toastify";
+import Loader from "../components/Loader";
 
 const ModelDetails = () => {
 	const {id} = useParams();
@@ -15,6 +16,8 @@ const ModelDetails = () => {
 
 	const [refetch, setRefetch] = useState(false);
 
+	const [loading, setLoading] = useState(true);
+
 	const isOwner = user?.email === model.createdBy;
 
 	useEffect(() => {
@@ -22,6 +25,7 @@ const ModelDetails = () => {
 			.then(res => res.json())
 			.then(data => {
 				setModel(data);
+				setLoading(false);
 			});
 	}, [id, refetch]);
 
@@ -63,6 +67,10 @@ const ModelDetails = () => {
 				setRefetch(data);
 			});
 	};
+
+	if (loading) {
+		return <Loader></Loader>;
+	}
 
 	return (
 		<div>

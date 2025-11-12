@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import {Link, NavLink} from "react-router";
 import {AuthContext} from "../AuthContext/AuthContext";
-
 const Navbar = () => {
 	const {user, signOutUser} = useContext(AuthContext);
 
@@ -41,14 +40,13 @@ const Navbar = () => {
 							>
 								Home
 							</NavLink>
-							{user && (
-								<NavLink
-									to="/add-model"
-									className="hover:text-blue-400 transition-colors duration-200"
-								>
-									Add Model
-								</NavLink>
-							)}
+
+							<NavLink
+								to="/add-model"
+								className="hover:text-blue-400 transition-colors duration-200"
+							>
+								Add Model
+							</NavLink>
 
 							<NavLink
 								to="/all-model"
@@ -89,29 +87,64 @@ const Navbar = () => {
 				</div>
 				<div className="navbar-end">
 					{user ? (
-						// <img className="w-10 h-10" src={user?.photoURL} alt="" />
-						<details className="dropdown">
-							<summary className="btn border-0 p-0 rounded-full m-1">
+						//
+
+						<div className="dropdown dropdown-bottom dropdown-center">
+							<div
+								tabIndex={0}
+								role="button"
+								className="btn m-1 border-0 p-0 rounded-full"
+							>
 								<img
 									className="w-10 h-10 rounded-full"
 									src={user?.photoURL}
 									alt=""
 								/>
-							</summary>
-							<ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-60 p-2 shadow-sm">
+							</div>
+							<ul
+								tabIndex="-1"
+								className="dropdown-content  menu rounded-xl bg-base-100 font-medium   shadow-sm"
+							>
 								<li>
 									<a>name: {user?.displayName}</a>
 								</li>
 								<li>
 									<a>email: {user?.email}</a>
 								</li>
-								{user && <NavLink to="/my-model">My Models</NavLink>}
-								{user && (
-									<NavLink to="/my-model-purchase">My Models Purchase</NavLink>
-								)}
+								<li>{user && <NavLink to="/my-model">My Models</NavLink>}</li>
+								<li>
+									{user && (
+										<NavLink to="/my-model-purchase">
+											My Models Purchase
+										</NavLink>
+									)}
+								</li>
 							</ul>
-						</details>
+						</div>
 					) : (
+						//
+						// <img className="w-10 h-10" src={user?.photoURL} alt="" />
+						// <details className="dropdown">
+						// 	<summary className="btn border-0 p-0 rounded-full m-1">
+						// 		<img
+						// 			className="w-10 h-10 rounded-full"
+						// 			src={user?.photoURL}
+						// 			alt=""
+						// 		/>
+						// 	</summary>
+						// 	<ul className="menu dropdown-content bg-base-100 rounded-box z-1  p-2 shadow-sm">
+						// 		<li>
+						// 			<a>name: {user?.displayName}</a>
+						// 		</li>
+						// 		<li>
+						// 			<a>email: {user?.email}</a>
+						// 		</li>
+						// 		{user && <NavLink to="/my-model">My Models</NavLink>}
+						// 		{user && (
+						// 			<NavLink to="/my-model-purchase">My Models Purchase</NavLink>
+						// 		)}
+						// 	</ul>
+						// </details>
 						""
 					)}
 

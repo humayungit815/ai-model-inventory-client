@@ -1,14 +1,16 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {toast} from "react-toastify";
 import {AuthContext} from "../AuthContext/AuthContext";
 
 const AddModel = () => {
 	const {user} = useContext(AuthContext);
+	const [loading, setLoading] = useState(false);
 
 	// const [models, setModels] = useState([]);
 
 	const handleAddModel = e => {
 		e.preventDefault();
+		setLoading(true);
 
 		const formData = {
 			name: e.target.name.value,
@@ -35,6 +37,9 @@ const AddModel = () => {
 			})
 			.catch(error => {
 				console.log(error);
+			})
+			.finally(() => {
+				setLoading(false);
 			});
 	};
 
@@ -122,7 +127,14 @@ const AddModel = () => {
 						type="submit"
 						className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md font-semibold transition"
 					>
-						Add Model
+						{loading ? (
+							<div className="flex items-center justify-center gap-2">
+								<span className="w-5 h-5 border-2 border-white border-dashed rounded-full animate-spin"></span>
+								Submitting...
+							</div>
+						) : (
+							"Add Model"
+						)}
 					</button>
 				</form>
 			</div>

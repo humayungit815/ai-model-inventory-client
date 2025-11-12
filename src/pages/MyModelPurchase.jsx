@@ -1,18 +1,26 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router";
+import Loader from "../components/Loader";
 
 const MyModelPurchase = () => {
 	const [models, setModels] = useState([]);
+
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		fetch("http://localhost:3000/purchased")
 			.then(res => res.json())
 			.then(data => {
 				setModels(data);
+				setLoading(false);
 			});
 	}, []);
+
+	if (loading) {
+		return <Loader></Loader>;
+	}
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mt-10">
 			{models.map(model => (
 				<div
 					key={model._id}
@@ -23,7 +31,9 @@ const MyModelPurchase = () => {
 						alt={model.name}
 						className="w-full h-48 object-cover rounded-md mb-4"
 					/>
-					<h2 className="text-xl font-semibold mb-2">{model.name}</h2>
+					<h2 className="text-xl text-white font-semibold mb-2">
+						{model.name}
+					</h2>
 					<p className="text-gray-400 text-sm">
 						Framework: <span className="text-white">{model.framework}</span>
 					</p>
