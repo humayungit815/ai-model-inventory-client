@@ -6,12 +6,14 @@ import {Outlet} from "react-router";
 
 const Root = () => {
 	return (
-		<div className="min-h-screen">
+		<div className="">
 			<Navbar></Navbar>
-			<div className="min-h-screen">
+			<div className="">
 				<Outlet></Outlet>
 			</div>
-			{/* <Footer></Footer> */}
+			<div>
+				<Footer></Footer>
+			</div>
 		</div>
 	);
 };

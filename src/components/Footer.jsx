@@ -1,29 +1,34 @@
 import React from "react";
+import {FaGithub} from "react-icons/fa";
 
 const Footer = () => {
 	return (
 		<div>
-			<footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
-				<nav>
-					<h6 className="footer-title">Services</h6>
-					<a className="link link-hover">Branding</a>
-					<a className="link link-hover">Design</a>
-					<a className="link link-hover">Marketing</a>
-					<a className="link link-hover">Advertisement</a>
-				</nav>
-				<nav>
-					<h6 className="footer-title">Company</h6>
-					<a className="link link-hover">About us</a>
-					<a className="link link-hover">Contact</a>
-					<a className="link link-hover">Jobs</a>
-					<a className="link link-hover">Press kit</a>
-				</nav>
-				<nav>
-					<h6 className="footer-title">Legal</h6>
-					<a className="link link-hover">Terms of use</a>
-					<a className="link link-hover">Privacy policy</a>
-					<a className="link link-hover">Cookie policy</a>
-				</nav>
+			<footer className="bg-gray-900 text-gray-300 py-6 mt-10">
+				<div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+					{/* Logo / Project Name */}
+					<h2 className="btn btn-ghost font-bold text-[#058ED9] text-2xl">
+						BrainBox
+					</h2>
+
+					{/* Copyright */}
+					<p className="text-sm text-gray-400">
+						&copy; {new Date().getFullYear()} AI Model Hub. All rights reserved.
+					</p>
+
+					{/* GitHub Links */}
+					<div className="flex items-center gap-4">
+						<a
+							href="https://github.com/humayungit815/ai-model-inventory-client"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="flex items-center gap-2 hover:text-blue-400 transition-colors duration-300"
+						>
+							<FaGithub size={20} />
+							<span>GitHub Repo</span>
+						</a>
+					</div>
+				</div>
 			</footer>
 		</div>
 	);
