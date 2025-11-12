@@ -3,5 +3,9 @@
 
 nav a.active {
 	text-decoration: underline;
+	
 }
 
+body {
+	background-color: #d6d3f0;
+}

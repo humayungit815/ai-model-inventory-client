@@ -11,7 +11,7 @@ const Navbar = () => {
 
 	return (
 		<nav className=" bg-base-100 shadow-sm">
-			<div className="navbar max-w-7xl mx-auto">
+			<div className="navbar px-10">
 				<div className="navbar-start">
 					<div className="dropdown">
 						<div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -35,21 +35,56 @@ const Navbar = () => {
 							tabIndex="-1"
 							className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
 						>
-							<NavLink>Home</NavLink>
+							<NavLink
+								to="/"
+								className="hover:text-blue-400 transition-colors duration-200"
+							>
+								Home
+							</NavLink>
+							{user && (
+								<NavLink
+									to="/add-model"
+									className="hover:text-blue-400 transition-colors duration-200"
+								>
+									Add Model
+								</NavLink>
+							)}
+
+							<NavLink
+								to="/all-model"
+								className="hover:text-blue-400 transition-colors duration-200"
+							>
+								All Models
+							</NavLink>
 						</ul>
 					</div>
-					<a className="btn btn-ghost text-xl">BrainBox</a>
+					<a className="btn btn-ghost font-bold text-[#058ED9] text-2xl">
+						BrainBox
+					</a>
 				</div>
 				<div className="navbar-center hidden lg:flex">
-					<ul className="menu menu-horizontal px-1 flex gap-5">
-						<NavLink to="/">Home</NavLink>
-						{user && <NavLink to="/add-model">Add Model</NavLink>}
-
-						<NavLink to="/all-model">All Models</NavLink>
-						{user && <NavLink to="/my-model">My Models</NavLink>}
+					<ul className="menu menu-horizontal px-1 font-medium flex gap-5">
+						<NavLink
+							to="/"
+							className="hover:text-blue-400 transition-colors duration-200"
+						>
+							Home
+						</NavLink>
 						{user && (
-							<NavLink to="/my-model-purchase">My Models Purchase</NavLink>
+							<NavLink
+								to="/add-model"
+								className="hover:text-blue-400 transition-colors duration-200"
+							>
+								Add Model
+							</NavLink>
 						)}
+
+						<NavLink
+							to="/all-model"
+							className="hover:text-blue-400 transition-colors duration-200"
+						>
+							All Models
+						</NavLink>
 					</ul>
 				</div>
 				<div className="navbar-end">
@@ -70,7 +105,10 @@ const Navbar = () => {
 								<li>
 									<a>email: {user?.email}</a>
 								</li>
-								
+								{user && <NavLink to="/my-model">My Models</NavLink>}
+								{user && (
+									<NavLink to="/my-model-purchase">My Models Purchase</NavLink>
+								)}
 							</ul>
 						</details>
 					) : (
