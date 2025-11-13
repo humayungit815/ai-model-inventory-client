@@ -8,7 +8,7 @@ const MyModelPurchase = () => {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetch("http://localhost:3000/purchased")
+		fetch("https://ai-model-inventory-manager.vercel.app/purchased")
 			.then(res => res.json())
 			.then(data => {
 				setModels(data);

@@ -62,7 +62,9 @@ const router = createBrowserRouter([
 					</PrivateRoute>
 				),
 				loader: ({params}) =>
-					fetch(`http://localhost:3000/models/${params.id}`),
+					fetch(
+						`https://ai-model-inventory-manager.vercel.app/models/${params.id}`
+					),
 			},
 			{
 				path: "/my-model",

@@ -1,6 +1,6 @@
 # BrainBox - AI Model Inventory Website
 
-[Live Site URL](https://your-live-site-url.com)  
+[Live Site URL](https://ai-model-inventory-manager1.netlify.app/)  
 
 BrainBox is a responsive and user-friendly web application designed to manage an inventory of AI models. Users can add, view, filter, edit, and delete AI models with detailed information such as model name, framework, use case, dataset, and description. The app is secure, integrates with MongoDB for data storage, and uses Firebase for authentication.  
 

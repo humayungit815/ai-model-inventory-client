@@ -8,7 +8,9 @@ const MyModels = () => {
 	const [models, setModels] = useState([]);
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
-		fetch(`http://localhost:3000/my-model?email=${user.email}`)
+		fetch(
+			`https://ai-model-inventory-manager.vercel.app/my-model?email=${user.email}`
+		)
 			.then(res => res.json())
 			.then(data => {
 				setModels(data);

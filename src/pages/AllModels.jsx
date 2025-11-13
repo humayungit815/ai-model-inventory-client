@@ -8,7 +8,7 @@ const AllModels = () => {
 	const [selectedFrameworks, setSelectedFrameworks] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:3000/models")
+		fetch("https://ai-model-inventory-manager.vercel.app/models")
 			.then(res => res.json())
 			.then(data => {
 				// console.log(data);
@@ -25,7 +25,7 @@ const AllModels = () => {
 	const fetchModels = async (frameworksArray = []) => {
 		setLoading(true);
 		try {
-			let url = "http://localhost:3000/filter";
+			let url = "https://ai-model-inventory-manager.vercel.app/filter";
 			if (frameworksArray.length > 0) {
 				url += `?frameworks=${encodeURIComponent(frameworksArray.join(","))}`;
 			}
@@ -60,7 +60,9 @@ const AllModels = () => {
 		e.preventDefault();
 		const search_text = e.target.search.value;
 
-		fetch(`http://localhost:3000/search?search=${search_text}`)
+		fetch(
+			`https://ai-model-inventory-manager.vercel.app/search?search=${search_text}`
+		)
 			.then(res => res.json())
 			.then(data => {
 				setModels(data);

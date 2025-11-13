@@ -7,7 +7,7 @@ const FeaturedAiModels = () => {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetch("http://localhost:3000/latest-models")
+		fetch("https://ai-model-inventory-manager.vercel.app/latest-models")
 			.then(res => res.json())
 			.then(data => {
 				setModels(data);

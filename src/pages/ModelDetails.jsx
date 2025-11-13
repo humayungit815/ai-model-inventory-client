@@ -21,7 +21,7 @@ const ModelDetails = () => {
 	const isOwner = user?.email === model.createdBy;
 
 	useEffect(() => {
-		fetch(`http://localhost:3000/models/${id}`)
+		fetch(`https://ai-model-inventory-manager.vercel.app/models/${id}`)
 			.then(res => res.json())
 			.then(data => {
 				setModel(data);
@@ -30,7 +30,7 @@ const ModelDetails = () => {
 	}, [id, refetch]);
 
 	const handleDelete = () => {
-		fetch(`http://localhost:3000/models/${model._id}`, {
+		fetch(`https://ai-model-inventory-manager.vercel.app/models/${model._id}`, {
 			method: "DELETE",
 		})
 			.then(res => res.json())
@@ -54,7 +54,7 @@ const ModelDetails = () => {
 			purchased: model.purchased,
 		};
 
-		fetch("http://localhost:3000/purchased", {
+		fetch("https://ai-model-inventory-manager.vercel.app/purchased", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

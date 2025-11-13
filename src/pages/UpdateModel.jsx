@@ -5,7 +5,6 @@ import {toast} from "react-toastify";
 const UpdateModel = () => {
 	const data = useLoaderData();
 
-
 	const navigate = useNavigate();
 	const {id} = useParams();
 
@@ -22,13 +21,16 @@ const UpdateModel = () => {
 		};
 		console.log(formData);
 
-		fetch(`http://localhost:3000/update-model/${data._id}`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(formData),
-		})
+		fetch(
+			`https://ai-model-inventory-manager.vercel.app/update-model/${data._id}`,
+			{
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formData),
+			}
+		)
 			.then(res => res.json())
 			.then(data => {
 				console.log(data);
