@@ -133,29 +133,6 @@ const Navbar = () => {
 							</ul>
 						</div>
 					) : (
-						//
-						// <img className="w-10 h-10" src={user?.photoURL} alt="" />
-						// <details className="dropdown">
-						// 	<summary className="btn border-0 p-0 rounded-full m-1">
-						// 		<img
-						// 			className="w-10 h-10 rounded-full"
-						// 			src={user?.photoURL}
-						// 			alt=""
-						// 		/>
-						// 	</summary>
-						// 	<ul className="menu dropdown-content bg-base-100 rounded-box z-1  p-2 shadow-sm">
-						// 		<li>
-						// 			<a>name: {user?.displayName}</a>
-						// 		</li>
-						// 		<li>
-						// 			<a>email: {user?.email}</a>
-						// 		</li>
-						// 		{user && <NavLink to="/my-model">My Models</NavLink>}
-						// 		{user && (
-						// 			<NavLink to="/my-model-purchase">My Models Purchase</NavLink>
-						// 		)}
-						// 	</ul>
-						// </details>
 						""
 					)}
 
@@ -174,12 +151,14 @@ const Navbar = () => {
 						</Link>
 					)}
 				</div>
-				<input
-					onChange={e => handleTheme(e.target.checked)}
-					type="checkbox"
-					defaultChecked={localStorage.getItem("theme") === "dark"}
-					className="toggle"
-				/>
+				<div className="ml-3">
+					<input
+						onChange={e => handleTheme(e.target.checked)}
+						type="checkbox"
+						defaultChecked={localStorage.getItem("theme") === "dark"}
+						className="toggle"
+					/>
+				</div>
 			</div>
 		</nav>
 	);

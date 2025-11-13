@@ -2,8 +2,8 @@ import React from "react";
 
 const Loader = () => {
 	return (
-		<div>
-			<h1>Loading</h1>
+		<div className="min-h-screen flex items-center justify-center">
+			<span className="loading loading-bars loading-xl"></span>
 		</div>
 	);
 };
