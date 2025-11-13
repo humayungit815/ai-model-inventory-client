@@ -5,22 +5,51 @@ import Loader from "../components/Loader";
 const AllModels = () => {
 	const [models, setModels] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const [framework, setFramework] = useState("");
-	const [filteredModels, setFilteredModels] = useState([]);
+	const [selectedFrameworks, setSelectedFrameworks] = useState([]);
 
 	useEffect(() => {
 		fetch("http://localhost:3000/models")
 			.then(res => res.json())
 			.then(data => {
-				console.log(data);
+				// console.log(data);
 				setModels(data);
-				setFilteredModels(data);
+
 				setLoading(false);
 			})
 			.catch(err => {
 				console.log(err);
 				setLoading(false);
 			});
+	}, []);
+
+	const fetchModels = async (frameworksArray = []) => {
+		setLoading(true);
+		try {
+			let url = "http://localhost:3000/filter";
+			if (frameworksArray.length > 0) {
+				url += `?frameworks=${encodeURIComponent(frameworksArray.join(","))}`;
+			}
+			const res = await fetch(url);
+			const data = await res.json();
+			setModels(data);
+		} catch (err) {
+			console.error(err);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	const handleDropdownChange = e => {
+		const selectedOptions = Array.from(
+			e.target.selectedOptions,
+			option => option.value
+		);
+		setSelectedFrameworks(selectedOptions);
+		fetchModels(selectedOptions);
+	};
+
+	useEffect(() => {
+		fetchModels();
 	}, []);
 
 	if (loading) {
@@ -38,22 +67,9 @@ const AllModels = () => {
 			});
 	};
 
-	// Filter handler
-	const handleFilterChange = e => {
-		const selected = e.target.value;
-		setFramework(selected);
-
-		if (selected === "") {
-			setFilteredModels(models);
-		} else {
-			const filtered = models.filter(m => m.framework === selected);
-			setFilteredModels(filtered);
-		}
-	};
-
 	return (
 		<div>
-			<div className="min-h-screen bg-[#d6d3f0] text-white py-10 px-4">
+			<div className="min-h-screen bg-base-200 text-white py-10 px-4">
 				<h1 className="text-3xl text-black font-bold text-center mb-8">
 					All AI Models
 				</h1>
@@ -81,8 +97,8 @@ const AllModels = () => {
 					{/* Filter Dropdown */}
 					<div className="flex justify-center mb-6">
 						<select
-							value={framework}
-							onChange={handleFilterChange}
+							value={selectedFrameworks[0] || ""}
+							onChange={handleDropdownChange}
 							className="px-4 py-2 rounded-md border border-gray-300 bg-white shadow-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
 						>
 							<option value="">All Frameworks</option>
@@ -95,7 +111,7 @@ const AllModels = () => {
 				{/*  */}
 
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-					{filteredModels.map(model => (
+					{models.map(model => (
 						<div
 							key={model._id}
 							className="bg-gray-100 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"

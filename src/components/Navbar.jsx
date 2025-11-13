@@ -1,11 +1,23 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Link, NavLink} from "react-router";
 import {AuthContext} from "../AuthContext/AuthContext";
 const Navbar = () => {
 	const {user, signOutUser} = useContext(AuthContext);
 
+	const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
 	const handleSignOut = () => {
 		signOutUser();
+	};
+
+	useEffect(() => {
+		const html = document.querySelector("html");
+		html.setAttribute("data-theme", theme);
+		localStorage.setItem("theme", theme);
+	}, [theme]);
+
+	const handleTheme = checked => {
+		setTheme(checked ? "dark" : "light");
 	};
 
 	return (
@@ -162,6 +174,12 @@ const Navbar = () => {
 						</Link>
 					)}
 				</div>
+				<input
+					onChange={e => handleTheme(e.target.checked)}
+					type="checkbox"
+					defaultChecked={localStorage.getItem("theme") === "dark"}
+					className="toggle"
+				/>
 			</div>
 		</nav>
 	);

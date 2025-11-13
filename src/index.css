@@ -1,11 +1,15 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+	themes: light --default, dark --prefersdark;
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 nav a.active {
 	text-decoration: underline;
 	color: #60a5fa;
 }
 
-body {
+/* body {
 	background-color: #d6d3f0;
-}
+} */
