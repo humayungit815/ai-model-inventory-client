@@ -77,7 +77,7 @@ const AllModels = () => {
 				</h1>
 
 				{/*  */}
-				<div className="flex justify-between max-w-7xl mx-auto">
+				<div className="flex flex-col md:flex-row justify-between max-w-7xl mx-auto">
 					<form
 						onSubmit={handleSearch}
 						className="flex justify-center mb-8 gap-3"

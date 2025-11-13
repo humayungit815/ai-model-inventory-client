@@ -22,7 +22,7 @@ const Navbar = () => {
 
 	return (
 		<nav className=" bg-base-100 shadow-sm">
-			<div className="navbar px-10">
+			<div className="navbar md:px-10">
 				<div className="navbar-start">
 					<div className="dropdown">
 						<div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -68,7 +68,7 @@ const Navbar = () => {
 							</NavLink>
 						</ul>
 					</div>
-					<a className="btn btn-ghost font-bold text-[#058ED9] text-2xl">
+					<a className="btn btn-ghost p-0 font-bold text-[#058ED9] text-2xl">
 						BrainBox
 					</a>
 				</div>

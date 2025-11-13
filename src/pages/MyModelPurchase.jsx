@@ -1,20 +1,26 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Link} from "react-router";
 import Loader from "../components/Loader";
+import {AuthContext} from "../AuthContext/AuthContext";
 
 const MyModelPurchase = () => {
 	const [models, setModels] = useState([]);
 
+	const {user} = useContext(AuthContext);
+
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetch("https://ai-model-inventory-manager.vercel.app/purchased")
+		fetch(
+			`https://ai-model-inventory-manager.vercel.app/purchased?email=${user.email}`
+		)
 			.then(res => res.json())
 			.then(data => {
 				setModels(data);
 				setLoading(false);
-			});
-	}, []);
+			})
+			.catch(err => console.error(err));
+	}, [user.email]);
 
 	if (loading) {
 		return <Loader></Loader>;
