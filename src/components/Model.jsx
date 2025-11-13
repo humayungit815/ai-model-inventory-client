@@ -3,7 +3,7 @@ import React from "react";
 const Model = ({model}) => {
 	return (
 		<div>
-			<div className="bg-base-100 rounded-2xl shadow-md hover:shadow-xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300">
+			<div className="bg-base-100 w-[90%] md:w-[full] mx-auto rounded-2xl shadow-md hover:shadow-xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300">
 				<img
 					src={model?.image}
 					alt={model?.name}
