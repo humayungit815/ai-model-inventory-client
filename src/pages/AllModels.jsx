@@ -5,6 +5,8 @@ import Loader from "../components/Loader";
 const AllModels = () => {
 	const [models, setModels] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [framework, setFramework] = useState("");
+	const [filteredModels, setFilteredModels] = useState([]);
 
 	useEffect(() => {
 		fetch("http://localhost:3000/models")
@@ -12,6 +14,7 @@ const AllModels = () => {
 			.then(data => {
 				console.log(data);
 				setModels(data);
+				setFilteredModels(data);
 				setLoading(false);
 			})
 			.catch(err => {
@@ -24,6 +27,30 @@ const AllModels = () => {
 		return <Loader></Loader>;
 	}
 
+	const handleSearch = e => {
+		e.preventDefault();
+		const search_text = e.target.search.value;
+
+		fetch(`http://localhost:3000/search?search=${search_text}`)
+			.then(res => res.json())
+			.then(data => {
+				setModels(data);
+			});
+	};
+
+	// Filter handler
+	const handleFilterChange = e => {
+		const selected = e.target.value;
+		setFramework(selected);
+
+		if (selected === "") {
+			setFilteredModels(models);
+		} else {
+			const filtered = models.filter(m => m.framework === selected);
+			setFilteredModels(filtered);
+		}
+	};
+
 	return (
 		<div>
 			<div className="min-h-screen bg-[#d6d3f0] text-white py-10 px-4">
@@ -31,8 +58,44 @@ const AllModels = () => {
 					All AI Models
 				</h1>
 
+				{/*  */}
+				<div className="flex justify-between max-w-7xl mx-auto">
+					<form
+						onSubmit={handleSearch}
+						className="flex justify-center mb-8 gap-3"
+					>
+						<input
+							type="text"
+							name="search"
+							placeholder="Search by model name..."
+							className="w-64 px-4 py-2 rounded-md text-black focus:outline-none border border-gray-700"
+						/>
+						<button
+							type="submit"
+							className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
+						>
+							Search
+						</button>
+					</form>
+
+					{/* Filter Dropdown */}
+					<div className="flex justify-center mb-6">
+						<select
+							value={framework}
+							onChange={handleFilterChange}
+							className="px-4 py-2 rounded-md border border-gray-300 bg-white shadow-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+						>
+							<option value="">All Frameworks</option>
+							<option value="TensorFlow">TensorFlow</option>
+							<option value="PyTorch">PyTorch</option>
+						</select>
+					</div>
+				</div>
+
+				{/*  */}
+
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-					{models.map(model => (
+					{filteredModels.map(model => (
 						<div
 							key={model._id}
 							className="bg-gray-100 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"

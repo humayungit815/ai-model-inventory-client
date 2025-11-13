@@ -1,7 +1,7 @@
 import {AtSign, Lock} from "lucide-react";
 import React, {useContext} from "react";
 import {BsGoogle} from "react-icons/bs";
-import {Link, useNavigate} from "react-router";
+import {Link, useLocation, useNavigate} from "react-router";
 import googleImg from "../assets/google_img.png";
 import {AuthContext} from "../AuthContext/AuthContext";
 import {toast} from "react-toastify";
@@ -10,6 +10,7 @@ const Login = () => {
 	const {loginUser, signInWithGoogle} = useContext(AuthContext);
 
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	const handleLogin = e => {
 		e.preventDefault();
@@ -20,7 +21,7 @@ const Login = () => {
 		loginUser(email, password)
 			.then(result => {
 				console.log(result.user);
-				navigate("/");
+				navigate(`${location.state ? location.state : "/"}`);
 				toast.success("Login Successful!");
 			})
 			.catch(error => {
@@ -34,7 +35,7 @@ const Login = () => {
 			.then(result => {
 				console.log(result.user);
 				toast.success("Login Successful.");
-				navigate("/");
+				navigate(`${location.state ? location.state : "/"}`);
 			})
 			.catch(error => {
 				console.log(error);

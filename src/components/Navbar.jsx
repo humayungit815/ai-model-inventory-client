@@ -68,14 +68,13 @@ const Navbar = () => {
 						>
 							Home
 						</NavLink>
-						{user && (
-							<NavLink
-								to="/add-model"
-								className="hover:text-blue-400 transition-colors duration-200"
-							>
-								Add Model
-							</NavLink>
-						)}
+
+						<NavLink
+							to="/add-model"
+							className="hover:text-blue-400 transition-colors duration-200"
+						>
+							Add Model
+						</NavLink>
 
 						<NavLink
 							to="/all-model"
