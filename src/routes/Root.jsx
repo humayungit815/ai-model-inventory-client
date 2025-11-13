@@ -7,7 +7,7 @@ import Loader from "../components/Loader";
 
 const Root = () => {
 	return (
-		<div className="min-h-screen">
+		<div className="min-h-screen bg-base-200 text-base-content">
 			<Navbar></Navbar>
 			<div className="min-h-screen">
 				<Outlet></Outlet>

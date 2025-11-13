@@ -25,7 +25,7 @@ const FeaturedAiModels = () => {
 
 	return (
 		<div className="mt-20">
-			<h1 className="text-4xl text-[#1E2749] font-bold text-center my-10">
+			<h1 className="text-4xl text-base-content font-bold text-center my-10">
 				Featured AI Models
 			</h1>
 			<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

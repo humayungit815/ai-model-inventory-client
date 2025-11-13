@@ -69,8 +69,8 @@ const AllModels = () => {
 
 	return (
 		<div>
-			<div className="min-h-screen bg-base-200 text-white py-10 px-4">
-				<h1 className="text-3xl text-black font-bold text-center mb-8">
+			<div className="min-h-screen text-white py-10 px-4">
+				<h1 className="text-3xl font-bold text-center mb-8 text-base-content">
 					All AI Models
 				</h1>
 
@@ -84,7 +84,7 @@ const AllModels = () => {
 							type="text"
 							name="search"
 							placeholder="Search by model name..."
-							className="w-64 px-4 py-2 rounded-md text-black focus:outline-none border border-gray-700"
+							className="w-64 px-4 py-2 rounded-md text-base-content focus:outline-none border border-gray-700"
 						/>
 						<button
 							type="submit"
@@ -114,20 +114,20 @@ const AllModels = () => {
 					{models.map(model => (
 						<div
 							key={model._id}
-							className="bg-gray-100 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+							className="bg-base-100 text-base-content rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"
 						>
 							<img
 								src={model.image}
 								alt={model.name}
 								className="w-full h-48 object-cover"
 							/>
-							<div className="p-5 space-y-2 text-black">
+							<div className="p-5 space-y-2 text-base-content">
 								<h2 className="text-2xl font-semibold">{model.name}</h2>
-								<p className="text-black">
+								<p className="text-base-content">
 									<span className="font-semibold">Framework:</span>{" "}
 									{model.framework}
 								</p>
-								<p className="text-black">
+								<p className="text-base-content">
 									<span className="font-semibold">Use Case:</span>{" "}
 									{model.useCase}
 								</p>
