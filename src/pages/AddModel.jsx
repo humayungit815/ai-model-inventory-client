@@ -1,12 +1,13 @@
 import React, {useContext, useState} from "react";
 import {toast} from "react-toastify";
 import {AuthContext} from "../AuthContext/AuthContext";
+import {useNavigate} from "react-router";
 
 const AddModel = () => {
 	const {user} = useContext(AuthContext);
 	const [loading, setLoading] = useState(false);
 
-	// const [models, setModels] = useState([]);
+	const navigate = useNavigate();
 
 	const handleAddModel = e => {
 		e.preventDefault();
@@ -34,6 +35,7 @@ const AddModel = () => {
 			.then(data => {
 				console.log(data);
 				toast.success("Add Model Successfully!");
+				navigate("/all-model");
 			})
 			.catch(error => {
 				console.log(error);

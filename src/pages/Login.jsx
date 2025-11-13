@@ -51,7 +51,7 @@ const Login = () => {
 					<div className="text-center mb-8">
 						<h1 className="text-4xl font-bold mb-2">Welcome Back</h1>
 						<p className="text-purple-100">
-							Log in to your AI Model Inventory account
+							Login to AI Model Inventory Manager
 						</p>
 					</div>
 

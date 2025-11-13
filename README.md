@@ -1,16 +1,25 @@
-# React + Vite
+# BrainBox - AI Model Inventory Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Site URL](https://your-live-site-url.com)  
 
-Currently, two official plugins are available:
+BrainBox is a responsive and user-friendly web application designed to manage an inventory of AI models. Users can add, view, filter, edit, and delete AI models with detailed information such as model name, framework, use case, dataset, and description. The app is secure, integrates with MongoDB for data storage, and uses Firebase for authentication.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
 
-## React Compiler
+- **User Authentication:** Secure login and registration with Firebase Authentication.  
+- **Add & Manage Models:** Users can add new AI models and edit or delete their existing models.  
+- **Dynamic Model Listing:** Display all AI models with filtering options by framework (e.g., TensorFlow, PyTorch).  
+- **Featured Models Section:** Automatically shows the most recently added AI models on the homepage.  
+- **Responsive & Theme Friendly:** Fully responsive design with dark/light theme toggle using Tailwind CSS and DaisyUI.  
+- **Search Functionality:** Users can search AI models by name for quick access.  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+- **Frontend:** React.js, Tailwind CSS, DaisyUI  
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB  
+- **Authentication:** Firebase Authentication  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+Feel free to explore the live site and manage your AI model inventory seamlessly!
