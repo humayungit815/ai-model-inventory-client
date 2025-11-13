@@ -111,35 +111,41 @@ const AllModels = () => {
 				{/*  */}
 
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-					{models.map(model => (
-						<div
-							key={model._id}
-							className="bg-base-100 text-base-content rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"
-						>
-							<img
-								src={model.image}
-								alt={model.name}
-								className="w-full h-48 object-cover"
-							/>
-							<div className="p-5 space-y-2 text-base-content">
-								<h2 className="text-2xl font-semibold">{model.name}</h2>
-								<p className="text-base-content">
-									<span className="font-semibold">Framework:</span>{" "}
-									{model.framework}
-								</p>
-								<p className="text-base-content">
-									<span className="font-semibold">Use Case:</span>{" "}
-									{model.useCase}
-								</p>
+					{models.length > 0 ? (
+						models.map(model => (
+							<div
+								key={model._id}
+								className="bg-base-100 text-base-content rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+							>
+								<img
+									src={model.image}
+									alt={model.name}
+									className="w-full h-48 object-cover"
+								/>
+								<div className="p-5 space-y-2 text-base-content">
+									<h2 className="text-2xl font-semibold">{model.name}</h2>
+									<p className="text-base-content">
+										<span className="font-semibold">Framework:</span>{" "}
+										{model.framework}
+									</p>
+									<p className="text-base-content">
+										<span className="font-semibold">Use Case:</span>{" "}
+										{model.useCase}
+									</p>
 
-								<Link to={`/details/${model._id}`}>
-									<button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition">
-										View Details
-									</button>
-								</Link>
+									<Link to={`/details/${model._id}`}>
+										<button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition">
+											View Details
+										</button>
+									</Link>
+								</div>
 							</div>
-						</div>
-					))}
+						))
+					) : (
+						<p className="col-span-full text-center text-xl text-gray-500 mt-10">
+							No models found. Try another search or filter.
+						</p>
+					)}
 				</div>
 			</div>
 		</div>

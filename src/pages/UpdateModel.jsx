@@ -1,12 +1,13 @@
 import React from "react";
-import {useLoaderData, useNavigate} from "react-router";
+import {useLoaderData, useNavigate, useParams} from "react-router";
 import {toast} from "react-toastify";
 
 const UpdateModel = () => {
 	const data = useLoaderData();
-	console.log(data);
+
 
 	const navigate = useNavigate();
+	const {id} = useParams();
 
 	const handleUpdateModel = e => {
 		e.preventDefault();
@@ -32,7 +33,7 @@ const UpdateModel = () => {
 			.then(data => {
 				console.log(data);
 				toast.success("Update Successfully!");
-				navigate("/");
+				navigate(`/details/${id}`);
 			});
 	};
 
