@@ -44,7 +44,7 @@ const Login = () => {
 
 	return (
 		<div>
-			<div className="min-h-screen flex items-center justify-center bg-linear-to-br from-indigo-400 via-purple-400 to-pink-400 px-4">
+			<div className="min-h-screen flex items-center justify-center bg-linear-to-br from-base-400 via-base-400 to-base-400 px-4">
 				{/* Colorful Card */}
 				<div className="bg-linear-to-br from-purple-600 to-pink-500 rounded-3xl shadow-2xl max-w-lg w-full p-10 text-white">
 					{/* Header */}
