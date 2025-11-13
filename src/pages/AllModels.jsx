@@ -142,7 +142,7 @@ const AllModels = () => {
 							</div>
 						))
 					) : (
-						<p className="col-span-full text-center text-xl text-gray-500 mt-10">
+						<p className="col-span-full font-medium text-center text-xl text-gray-500 mt-10">
 							No models found. Try another search or filter.
 						</p>
 					)}
