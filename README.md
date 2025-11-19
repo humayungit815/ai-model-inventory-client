@@ -11,7 +11,12 @@ BrainBox is a responsive and user-friendly web application designed to manage an
 - **Dynamic Model Listing:** Display all AI models with filtering options by framework (e.g., TensorFlow, PyTorch).  
 - **Featured Models Section:** Automatically shows the most recently added AI models on the homepage.  
 - **Responsive & Theme Friendly:** Fully responsive design with dark/light theme toggle using Tailwind CSS and DaisyUI.  
-- **Search Functionality:** Users can search AI models by name for quick access.  
+- **Search Functionality:** Users can search AI models by name for quick access.
+
+## 📦 Dependencies
+- react-router
+- react swiper
+- firebase
 
 ## Technologies Used
 
@@ -19,6 +24,15 @@ BrainBox is a responsive and user-friendly web application designed to manage an
 - **Backend:** Node.js, Express.js  
 - **Database:** MongoDB  
 - **Authentication:** Firebase Authentication  
+
+## 🚀 Getting Started
+1. Clone the repo  
+   ```bash
+   git clone https://github.com/username/repo.git
+
+2. npm install
+3. npm run dev
+
 
 ---
 
