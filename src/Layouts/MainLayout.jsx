@@ -13,6 +13,11 @@ import MyModels from "../pages/MyModels";
 import MyModelPurchase from "../pages/MyModelPurchase";
 import Loader from "./../components/Loader";
 import Error from "../pages/Error";
+import Dashboard from "../components/Dashboard/Dashboard";
+import UserOverview from "../components/Dashboard/UserMenu/UserOverview";
+import UserProfile from "../components/Dashboard/UserMenu/UserProfile";
+import ManageUsers from "../components/Dashboard/AdminMenu/ManageUsers";
+import AdminInventory from "../components/Dashboard/AdminMenu/AdminInventory";
 
 const router = createBrowserRouter([
 	{
@@ -81,6 +86,32 @@ const router = createBrowserRouter([
 						<MyModelPurchase></MyModelPurchase>
 					</PrivateRoute>
 				),
+			},
+		],
+	},
+	{
+		path: "dashboard",
+		element: (
+			<PrivateRoute>
+				<Dashboard />
+			</PrivateRoute>
+		),
+		children: [
+			{
+				index: true,
+				element: <UserOverview></UserOverview>,
+			},
+			{
+				path: "profile",
+				element: <UserProfile></UserProfile>,
+			},
+			{
+				path: "manage-users",
+				element: <ManageUsers></ManageUsers>,
+			},
+			{
+				path: "admin-inventory",
+				element: <AdminInventory></AdminInventory>,
 			},
 		],
 	},

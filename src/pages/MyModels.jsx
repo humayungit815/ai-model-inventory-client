@@ -23,7 +23,7 @@ const MyModels = () => {
 	}
 	return (
 		<div>
-			<div className="min-h-screen bg-linear-to-br from-slate-900 via-gray-800 to-slate-900 text-white p-6">
+			<div className="min-h-scree p-6">
 				<h1 className="text-3xl font-bold text-center mb-8">My AI Models</h1>
 
 				{models.length === 0 ? (
@@ -35,7 +35,7 @@ const MyModels = () => {
 						{models.map(model => (
 							<div
 								key={model._id}
-								className="bg-gray-800 border border-gray-700 rounded-xl p-5 shadow-md hover:shadow-xl transition"
+								className=" border-gray-700 rounded-xl p-5 shadow-md hover:shadow-xl transition"
 							>
 								<img
 									src={model.image}

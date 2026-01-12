@@ -6,6 +6,7 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 nav a.active {
-	text-decoration: underline;
-	color: #60a5fa;
+	background: linear-gradient(to right, #8b5cf6, #ec4899);
+	color: white;
+	border: 0;
 }

@@ -1,56 +1,38 @@
 import React from "react";
-import dalleImg from "../assets/Dalle-3--scaled.jpg";
-import clipImg from "../assets/clipai.jpg";
-import deeplabImg from "../assets/deepLab.png";
-import resnetImg from "../assets/resnet.png";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Autoplay, Pagination} from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+import banner1 from "../assets/banner1.png";
+import banner2 from "../assets/banner2.png";
+import banner3 from "../assets/banner3.png";
+import banner4 from "../assets/banner4.png";
 
 const Slider = () => {
 	return (
-		<div className="carousel w-full">
-			<div id="slide1" className="carousel-item relative w-full">
-				<img src={dalleImg} className="w-full h-[400px] object-cover" />
-				<div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-					<a href="#slide4" className="btn btn-circle">
-						❮
-					</a>
-					<a href="#slide2" className="btn btn-circle">
-						❯
-					</a>
-				</div>
-			</div>
-			<div id="slide2" className="carousel-item relative w-full">
-				<img src={clipImg} className="w-full h-[400px] object-cover" />
-				<div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-					<a href="#slide1" className="btn btn-circle">
-						❮
-					</a>
-					<a href="#slide3" className="btn btn-circle">
-						❯
-					</a>
-				</div>
-			</div>
-			<div id="slide3" className="carousel-item relative w-full">
-				<img src={deeplabImg} className="w-full h-[400px] object-cover" />
-				<div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-					<a href="#slide2" className="btn btn-circle">
-						❮
-					</a>
-					<a href="#slide4" className="btn btn-circle">
-						❯
-					</a>
-				</div>
-			</div>
-			<div id="slide4" className="carousel-item relative w-full">
-				<img src={resnetImg} className="w-full  h-[400px] object-cover" />
-				<div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-					<a href="#slide3" className="btn btn-circle">
-						❮
-					</a>
-					<a href="#slide1" className="btn btn-circle">
-						❯
-					</a>
-				</div>
-			</div>
+		<div className="flex justify-center">
+			<Swiper
+				pagination={{dynamicBullets: true}}
+				autoplay={{
+					delay: 4000,
+					disableOnInteraction: false,
+				}}
+				modules={[Pagination, Autoplay]}
+				className="mySwiper w-full overflow-hidden"
+			>
+				{[banner2, banner1, banner3, banner4].map((img, i) => (
+					<SwiperSlide key={i}>
+						<img
+							src={img}
+							alt="Banner"
+							className="w-[90%] rounded-2xl mx-auto h-[600px]"
+						/>
+					</SwiperSlide>
+				))}
+			</Swiper>
 		</div>
 	);
 };
